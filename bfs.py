@@ -40,5 +40,17 @@ def bfs_goal(peta, mulai, goal):
     return jalurNode
 
 
+def bfs_jalur(jalurnode, mulai, tujuan):
+    jalur = [tujuan]
+    prosesNode = tujuan
+    while prosesNode != mulai:
+        prosesNode = jalurnode[prosesNode]
+        jalur.append(prosesNode)
+    return jalur
+
+
 print(bfs(maps, 'A'))
-print(bfs_goal(maps, 'C', 'L'))
+jalur = bfs_goal(maps, 'C', 'L')
+print(jalur)
+solusi = bfs_jalur(jalur, 'C', 'L')
+print(solusi[::-1])
